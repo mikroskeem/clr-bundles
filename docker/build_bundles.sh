@@ -50,5 +50,8 @@ mixer build update
 # Export the archive
 . /etc/os-release
 echo ">>> Clear Linux version: '${BUILD_ID}'"
+cat > "${REPO_PUB_PATH}"/.clr.json <<EOF
+{"version":"${BUILD_ID}","timestamp":"$(date +%s)"}
+EOF
 
 tar -C "${REPO_PUB_PATH}" -cf - . 1>&3
