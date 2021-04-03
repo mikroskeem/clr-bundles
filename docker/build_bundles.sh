@@ -14,7 +14,7 @@ REPO_URL="file://${REPO_PUB_PATH}"
 set -x
 pushd "${REPO}" >/dev/null
 
-if [ ! -d "${REPO}"/private.pem ]; then
+if [ ! -f "${REPO}"/private.pem ]; then
 	echo ">>> Initializing new repository"
 	mixer init --no-default-bundles
 	mixer config set Swupd.BUNDLE "os-core"
