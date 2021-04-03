@@ -1,0 +1,14 @@
+# [TITLE]: m-ncurses
+# [DESCRIPTION]: Standalone ncurses package
+# [STATUS]: Active
+# [CAPABILITIES]:
+# [TAGS]: ncurses
+# [MAINTAINER]: Mark Vainomaa <mikroskeem@mikroskeem.eu>
+# 
+# List packages one per line.
+# includes have format:            include(bundle)
+# also-adds have format:           also-add(bundle)
+# content chroots have format:     content(path)
+# un-exportable files have format: un-export(path)
+
+ncurses

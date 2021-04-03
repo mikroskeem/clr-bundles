@@ -1,0 +1,15 @@
+# [TITLE]: os-core
+# [DESCRIPTION]: 
+# [STATUS]: 
+# [CAPABILITIES]:
+# [MAINTAINER]: 
+# 
+# List packages one per line.
+# includes have format:            include(bundle)
+# also-adds have format:           also-add(bundle)
+# content chroots have format:     content(path)
+# un-exportable files have format: un-export(path)
+
+
+# NOTE: this shouldn't be deleted.
+# https://docs.01.org/clearlinux/latest/guides/clear/swupd-3rd-party.html#create-bundle-of-3rd-party-app-with-mixer
