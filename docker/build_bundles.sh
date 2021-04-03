@@ -51,4 +51,4 @@ mixer build update
 . /etc/os-release
 echo ">>> Clear Linux version: '${BUILD_ID}'"
 
-tar -C "${REPO_PUB_PATH}" -cvf - . 1>&3
+tar -C "${REPO_PUB_PATH}" -cf - . 1>&3
