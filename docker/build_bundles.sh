@@ -11,7 +11,13 @@ REPO_NAME=local-repo
 REPO_PUB_PATH=/mixer/update/www
 REPO_URL="file://${REPO_PUB_PATH}"
 
-set -x
+# Debugging aid
+if [ "${CLR_VERBOSE:=false}" = "true" ]; then
+	set -x
+fi
+
+devnull=/dev/null
+
 pushd "${REPO}" >/dev/null
 
 if [ ! -f "${REPO}"/private.pem ]; then
@@ -36,7 +42,10 @@ for f in "${REPO}"/local-bundles/*; do
 	mixer bundle add "${name}"
 done
 
-swupd 3rd-party add "${REPO_NAME}" "${REPO_URL}" --allow-insecure-http --assume=yes --no-progress --quiet
+# Add the repository and check for removed bundles
+# `swupd 3rd-party add` output is spammy even with `--quiet` (outputs whole certificate), silence it.
+swupd 3rd-party add "${REPO_NAME}" "${REPO_URL}" --allow-insecure-http --assume=yes --no-progress --quiet >"${devnull}"
+
 for bundle in $(swupd 3rd-party bundle-list --no-progress --quiet --all --repo "${REPO_NAME}"); do
 	if ! [ -f "${REPO}"/local-bundles/"${bundle}" ]; then
 		mixer bundle remove "${bundle}"
